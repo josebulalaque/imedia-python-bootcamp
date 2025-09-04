@@ -169,7 +169,7 @@ After completing this bootcamp, try:
 
 ### Bonus Content
 
-See the [Bonus Slides](https://github.com/Ayumu098/python-bootcamp/blob/master/slides/Python%20Bonus.pdf) for:
+See the bonus folder for:
 
 - Functional programming
 - OpenPyXL (Excel automation)
@@ -177,7 +177,7 @@ See the [Bonus Slides](https://github.com/Ayumu098/python-bootcamp/blob/master/s
 - Streamlit (simple web apps)
 - BeautifulSoup (web scraping)
 
-These aren't covered in-depth during the bootcamp but are excellent next steps.
+These aren't covered in-depth during the bootcamp, but they are excellent warmups.
 
 ### Sample Projects to Explore
 
@@ -187,6 +187,43 @@ These beginner/intermediate projects are great for practice:
 - [Tkinter Collection](https://github.com/Aashishkumar123/Python-GUI-Project)
 - [Flask Blog App](https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog)
 - [Other Mini Projects](https://github.com/Python-World/python-mini-projects)
+
+### Packaging Python Applications
+
+Packaging Python as Executables / Apps
+
+You can ship Python programs as .exe (Windows) or runnable apps (Mac/Linux) so users don’t need Python installed.
+
+#### PyInstaller
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile your_script.py
+```
+
+- Output: `dist/your_script.exe` (or binary).
+- Docs: [PyInstaller Manual](https://pyinstaller.org/en/stable/?utm_source=chatgpt.com)
+
+#### cx_Freeze
+
+```bash
+pip install cx_Freeze
+cxfreeze your_script.py --target-dir dist/
+```
+
+- Output: folder with executable.
+- Docs: [cx_Freeze Docs](https://cx-freeze.readthedocs.io/en/stable/?utm_source=chatgpt.com)
+
+#### py2exe (Windows-only)
+
+```bash
+pip install py2exe
+python setup.py py2exe
+```
+
+Requires a `setup.py` script.
+
+Docs: [py2exe Guide](https://www.py2exe.org/?utm_source=chatgpt.com)
 
 ## Feedback & Issues
 
