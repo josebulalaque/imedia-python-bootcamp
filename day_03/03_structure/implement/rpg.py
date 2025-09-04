@@ -8,11 +8,3 @@ class Character(ABC):
     @abstractmethod
     def attack(self, other):
         raise NotImplementedError()
-
-class Knight(Character):
-    pass
-
-enemy = Character()
-knight = Knight()
-
-knight.attack(enemy)
