@@ -1,5 +1,11 @@
 # TODO: Ask the user for an integer input
 number = int(input("Pick a number: "))
+count = int(input("Pick how many items: "))
+
+print(f"You picked number {number} to be multiplied up to {count} times.")
+
+for items in range(1, count+1):
+    print(f"{number} x {items} = {number * items}")
 
 # TODO: Print the multiplication table for that number
 """

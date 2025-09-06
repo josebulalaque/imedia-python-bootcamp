@@ -6,3 +6,13 @@ color_input = input("Please enter a color: ")
 # "yellow"  -> print "Wait..."
 # "red"     -> print "Stop"
 # Everything else   -> print "Malfunction"
+
+match color_input:
+    case "red":
+        print("You picked red color. STOP!!!")
+    case "yellow":
+        print("You picked yellow color. WAIT!!!")
+    case "green":
+        print("You picked green color. GO!!!")
+    case _:
+        print("You picked other color. MALFUNCTION!!!")

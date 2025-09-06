@@ -1,8 +1,27 @@
 # TODO: Ask the user for an input that should be a number
-number = input("Enter number: ")
 
-# TODO: Then try to convert this into an integer using the following:
-number_converted = int(number)
+while True:
+    number = input("Enter number: ")
+
+    # Then try to convert this into an integer using the following:
+    try:
+        number_converted = int(number)
+        if number_converted < 0:
+            raise ValueError()
+        print("You entered a Number!")
+    except ValueError:
+        print("We don’t accept strings or negatives!")
+
+    retry=input(f"Do you want to try again [y/n]?:")
+    if retry == "y":
+        continue
+    elif retry == "n":
+        break
+    else:
+        print("wrong input! exiting")
+        break
+
+
 
 # The user could provide an invalid integer input (string)
 # TODO: Handle this case

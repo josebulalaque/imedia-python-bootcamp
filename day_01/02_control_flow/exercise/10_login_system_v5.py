@@ -9,6 +9,24 @@ username_input = input("Please provide username: ")
 password_input = input("Please provide password: ")
 
 # TODO: Notify user if credentials are valid or invalid
-correct_credentials = None
-print("Access Granted")
-print("Access Denied")
+
+if username_input == correct_username and password_input == correct_password:
+    print("USER Account. Access granted")
+elif username_input == admin_password and password_input == admin_password:
+    print("ADMIN Account. Access granted")
+else:
+    print("Access denied")
+
+#
+# if username_input == admin_username:
+#     if password_input == admin_password:
+#         print("you are ADMIN! Access granted")
+#     else:
+#         print("you entered the wrong password")
+# elif username_input == correct_username:
+#     if password_input == correct_password:
+#         print("you are USER! Access granted")
+#     else:
+#         print("you entered the wrong password")
+# else:
+#     print("you entered the wrong username")
