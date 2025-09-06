@@ -1,9 +1,10 @@
 # TODO: Ask the user for three values
-expense_1 = None  # Let the user enter a number
-expense_2 = None  # Let the user enter a number
-expense_3 = None  # Let the user enter a number
+expense_1 = input("enter your daily salary: ")  # Let the user enter a number
+expense_2 = input("enter your daily expense: ")  # Let the user enter a number
+expense_3 = input("enter anything hehe: ") # Let the user enter a number
 
 # TODO: Then, print each information one line at a time
-print(expense_1)
-print(expense_2)
-print(expense_3)
+print("daily sahod mo:", expense_1)
+print("daily gastos mo:", expense_2)
+print("wala lang:", expense_3)
+print("gastos mo naman ser")
