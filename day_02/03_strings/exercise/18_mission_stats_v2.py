@@ -5,7 +5,7 @@ speed = distance_km / (days * 24)
 completion = 0.35123
 
 print(" Mission Log ")
-print(f"Mission: {mission}")
+print(f"Mission: {mission:=^30}")
 print(f"Distance: {distance_km} km")
 print(f"Duration: {days} days")
 print(f"Speed: {speed} km/h")

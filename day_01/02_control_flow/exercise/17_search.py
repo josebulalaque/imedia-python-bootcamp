@@ -7,3 +7,8 @@ for item in items:
         print(f"found it!: {item}")
         continue
     print(f"current value: {item}")
+
+if item_to_find in items:
+    print(f"found it!: {item_to_find}")
+else:
+    print(f"nothing found!: {item_to_find}")

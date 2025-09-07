@@ -3,6 +3,6 @@ sentence = "I like big data and AI models"
 
 # TODO: Find all the words with len > 3
 words = sentence.split()
-big_words = []
+big_words = [word for word in words if len(word) >3]
 
 print(big_words)

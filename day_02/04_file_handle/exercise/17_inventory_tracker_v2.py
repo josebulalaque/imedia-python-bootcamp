@@ -1,69 +1,66 @@
+import json
+
 def add(inventory, item):
     """Add a new item (dict) to the inventory (list[dict])"""
     inventory.append(item)
 
-
 def remove(inventory, index):
     """Remove item (dict) in the given index (int) of inventory"""
-    return inventory.pop(index)
-
+    inventory.pop(index)
 
 def read(inventory, index):
-    """Return the item (dict) in the given index (int) of inventory"""
+    """ Return the item (dict) in the given index (int) of inventory"""
     return inventory[index]
 
-
 def show(inventory):
-    """Print the items and their details line-by-line"""
-    if not inventory:
-        print("Inventory is empty.\n")
-        return
-
-    for number, info_detail in enumerate(inventory, start=1):
-        print(f"Item {number}:")
-
-        for key, value in info_detail.items():
+    for item in inventory:
+        print(f"Items:")
+        for key, value in item.items():
             print(f"\t{key}: {value}")
 
+    """TODO: Print the items and their details line-by-line"""
 
 def save(inventory, filepath):
     """TODO: Save the inventory (list[dict]) to a filepath"""
+    with open(filepath, "w") as file:
+        json.dump(inventory, file, indent=2)
 
+def load(current_inventory, filepath):
+    with open(filepath, "r") as file:
+        inventory = json.load(file)
+    for item in inventory:
+        print(f"Items:")
+        for key, value in item.items():
+            print(f"\t{key}: {value}")
+    current_inventory.extend(inventory)
 
 def main():
     running = True
     inventory = []
 
     while running:
-        command = input("Command: ").strip().lower()
-
+        command = input("Command: ")
         if command == "add":
-            item_name = input("Item name: ")
-            item_info = input("Item info: ")
-            item = {"Name": item_name, "Info": item_info}
-            add(inventory, item)
-            print(f"{item} added to inventory\n")
-
+            name = input("Name: ")
+            info = input("Info: ")
+            price = input("Price: ")
+            dict1 = {"Name": name, "Info": info, "Price": price}
+            add(inventory, dict1)
         elif command == "remove":
-            index = int(input("Index (remove): "))
-            removed_item = remove(inventory, index - 1)  # user-friendly 1-based index
-            print(f"{removed_item} removed from inventory\n")
-
+            index = input("Index: ")
+            remove(inventory, int(index))
         elif command == "read":
-            index = int(input("Index (read): "))
-            item = read(inventory, index - 1)  # user-friendly 1-based index
-            print(f"Item {index}: {item}\n")
-
+            index = input("Index: ")
+            item = read(inventory, int(index))
+            for key, value in item.items():
+                print(f"\t{key}: {value}")
         elif command == "show":
             show(inventory)
-
         elif command == "save":
-            filepath = input("Filepath: ")
-            save(inventory, filepath)
-
+            save(inventory, "inv.json")
+        elif command == "load":
+            load(inventory, "inv.json")
         elif command == "exit":
             running = False
-            print("Exiting...")
-
 
 main()

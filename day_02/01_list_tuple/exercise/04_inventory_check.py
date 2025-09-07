@@ -7,3 +7,6 @@ inventory = ("Mousepad", "Keyboard", "Monitor", "Cable")
 	Item 3: Monitor
 	Item 4: Cable
 """
+
+for index, name in enumerate(inventory, start=1):
+	print(f"Item {index}: {name}")
