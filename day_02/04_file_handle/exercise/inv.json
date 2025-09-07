@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "laptop",
+    "Info": "dell",
+    "Price": "5000"
+  },
+  {
+    "Name": "cp",
+    "Info": "apple",
+    "Price": "4000"
+  }
+]
