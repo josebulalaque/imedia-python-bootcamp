@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 class FormApp(tk.Tk):
     def __init__(self):
         super().__init__()
