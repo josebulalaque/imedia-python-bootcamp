@@ -1,7 +1,7 @@
 import time
 
 import requests
-
+from concurrent.futures import ThreadPoolExecutor
 
 def check_website(url):
     try:
@@ -25,8 +25,12 @@ websites = websites[:100]  # Limit to 100 for brevity
 if __name__ == '__main__':
     start_time = time.time()
 
-    for website in websites:
-        check_website(website)
+    # for website in websites:
+    #     check_website(website)
+    #
+
+    with ThreadPoolExecutor() as executor:
+        outputs = executor.map(check_website, websites)
 
     end_time = time.time()
     print(end_time - start_time)

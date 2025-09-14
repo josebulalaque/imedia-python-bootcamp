@@ -1,0 +1,16 @@
+Shopping List Page
+<h1>Shopping List</h1>
+<form method="POST">
+    <input type="text" name="item" placeholder="Add Items">
+    <button type="submit">Add</button>
+</form>
+
+<form method="POST">
+    <button type="submit" name="removelast">DELETELAST</button>
+</form>
+<ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+<a href="/">Go Back</a>

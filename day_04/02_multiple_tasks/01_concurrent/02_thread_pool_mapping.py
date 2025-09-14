@@ -7,7 +7,6 @@ import requests
 def fetch_url(url):
     return requests.get(url).status_code
 
-
 inputs = ['https://httpbin.org/delay/5', 'https://httpbin.org/delay/7']
 
 if __name__ == '__main__':

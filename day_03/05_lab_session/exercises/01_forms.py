@@ -14,8 +14,8 @@ subscribe_var = tkinter.BooleanVar()
 rating_var = tkinter.IntVar(value=3)
 
 
-lbl_Name = tkinter.Label(root, text="Name: ", width=15, height=2, justify="left")
-lbl_Name.grid(row=0, column=0, rowspan=1, sticky="nsew")
+lbl_Name = tkinter.Label(root, text="Name: ", width=15, height=2)
+lbl_Name.grid(row=0, column=0, rowspan=1, sticky="e")
 
 entry_Name = tkinter.Entry(root)
 entry_Name.grid(row=0, column=1, columnspan=2)
@@ -43,7 +43,7 @@ chk_subscribe = tkinter.Checkbutton(
                 variable=chk_value,
                 height=3,
             )
-chk_subscribe.grid(row=3, column=0, columnspan=3, sticky="nesw")
+chk_subscribe.grid(row=3, column=0, columnspan=3, sticky="nsew")
 
 lbl_Rate = tkinter.Label(root, text="Rate us: ", width=15)
 lbl_Rate.grid(row=4, column=0, rowspan=2, sticky="nsew")
@@ -58,15 +58,7 @@ slider_rate = tkinter.Scale(
 )
 slider_rate.grid(row=5, column=1, columnspan=2, sticky="nsew", pady=15)
 
-# TODO: Create function for saving values to JSON
-# TODO: Create button for submit + save
-
 def submit_form():
-    # print("Name: ", entry_Name.get())
-    # print("Age: ", entry_Age.get())
-    # print("Theme: ", theme_var.get())
-    # print("Subscribe: ", chk_value.get())
-    # print("Rating: ", slider_value.get())
     data = [
         {'Name': entry_Name.get(),
          'Age': entry_Age.get(),
@@ -79,6 +71,11 @@ def submit_form():
     with open('feedback.json', 'w') as file:
         json.dump(data, file, indent=4)
 
+    print("Name: ", entry_Name.get())
+    print("Age: ", entry_Age.get())
+    print("Theme: ", theme_var.get())
+    print("Subscribe: ", chk_value.get())
+    print("Rating: ", slider_value.get())
     print("data saved to feedback.json")
     root.destroy()
 

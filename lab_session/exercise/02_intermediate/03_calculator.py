@@ -15,6 +15,7 @@ class CalculatorApp:
         # Create the main window
         self.window = tk.Tk()
         self.window.title("Simple Calculator")
+        self.window.geometry("500x300")
 
         # Holds the current expression as a string
         self.expression: str = ""
@@ -33,7 +34,7 @@ class CalculatorApp:
         self.display.grid(row=0, column=0, columnspan=4)
 
         # TODO: Call a method to create all the buttons
-        # self.setup_buttons()
+        self.setup_buttons()
 
     def press(self, value: str) -> None:
         """
@@ -81,6 +82,11 @@ class CalculatorApp:
             column: The column in the grid.
         """
         # TODO: Bind the correct command based on the button type
+        # btn_submit = tkinter.Button(root, text="Submit", command=submit_form)
+        # btn_submit.grid(row=6, column=1, sticky="nsew")
+        mybtn = tk.Button(self.window, text=text)
+        mybtn.grid(row=row, column=column)
+
         pass
 
     def setup_buttons(self) -> None:
@@ -95,6 +101,22 @@ class CalculatorApp:
             0 | C | = | +
         """
         # TODO: Call make_button(...) multiple times to create the layout
+        self.make_button("7", 0, 1)
+        self.make_button("8", 0, 2)
+        self.make_button("9", 0, 3)
+        self.make_button("/", 0, 4)
+        self.make_button("4", 1, 1)
+        self.make_button("5", 1, 2)
+        self.make_button("6", 1, 3)
+        self.make_button("*", 1, 4)
+        self.make_button("1", 2, 1)
+        self.make_button("2", 2, 2)
+        self.make_button("3", 2, 3)
+        self.make_button("-", 2, 4)
+        self.make_button("0", 3, 1)
+        self.make_button("C", 3, 2)
+        self.make_button("=", 3, 3)
+        self.make_button("+", 3, 4)
         pass
 
     def run(self) -> None:

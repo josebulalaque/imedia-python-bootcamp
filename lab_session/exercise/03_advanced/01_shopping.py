@@ -13,10 +13,14 @@ Don't use global variables.
 Do everything using session, form handling, and template rendering.
 """
 
-from flask import Flask
+from flask import Flask, session, render_template, request, redirect
 
 app = Flask(__name__)
-app.secret_key = "replace-with-a-secure-key"
+app.secret_key = "secretkey"
+
+@app.route("/")
+def index():
+    return '<a href="/shopping/">GO to SHOPPING List</a>'
 
 
 @app.get("/shopping/")
@@ -31,9 +35,10 @@ def show_shopping_list():
         HTML page showing all items in the shopping list.
     """
     # TODO: Check if "items" key exists in session. If not, initialize it as an empty list.
-
+    if "items" not in session:
+        session["items"] = []
     # TODO: Return a rendered template (e.g., "shopping.html") and pass the list as a variable.
-    pass
+    return render_template("shopping.html", items=session["items"])
 
 
 @app.post("/shopping/")
@@ -49,13 +54,13 @@ def add_item_to_list():
         Redirect back to the shopping list page.
     """
     # TODO: Get item name from form input using request.form["item"].
-
-    # TODO: Append the item to session["items"] if it's not empty.
-
-    # TODO: Set session.modified = True so Flask knows the list was updated.
-
+    if request.form["item"]:
+        # TODO: Append the item to session["items"] if it's not empty.
+        session["items"].append(request.form["item"])
+        # TODO: Set session.modified = True so Flask knows the list was updated.
+        session.modified = True
     # TODO: Redirect back to "/shopping/"
-    pass
+    return redirect("/shopping/")
 
 
 # BONUS TODOs (Add these routes once the student finishes the basic app):
@@ -72,8 +77,6 @@ def delete_item(index: int):
         Redirect back to the shopping list.
     """
     # TODO: Implement this if you want to add delete functionality.
-    pass
-
 
 @app.post("/shopping/bought/<int:index>")
 def mark_item_as_bought(index: int):

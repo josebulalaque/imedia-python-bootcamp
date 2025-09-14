@@ -9,6 +9,7 @@ def index():
 
 
 @app.route("/profile/")
+@app.route("/profiles/")
 def profile():
     return "Profile Page"
 
